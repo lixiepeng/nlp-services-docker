@@ -10,5 +10,5 @@ EXPOSE 8888
 
 ENTRYPOINT ["tini", "--"]
 
-CMD [ "/bin/bash" ,"./run.sh"]
+CMD [ "/bin/bash" ]
 
