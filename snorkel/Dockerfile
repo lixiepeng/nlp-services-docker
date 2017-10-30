@@ -20,7 +20,7 @@ RUN apt-get install -y curl grep sed dpkg && \
 
 ENV PATH /opt/conda/bin:$PATH
 
-RUN wget https://github.com/phiedulxp/snorkel.git && \
+RUN git clone https://github.com/phiedulxp/snorkel.git && \
     cd snorkel && \
     conda install numba && \
     pip install --requirement python-package-requirement.txt && \
