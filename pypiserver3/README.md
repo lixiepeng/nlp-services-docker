@@ -1,0 +1,3 @@
+## Usage
+- docker run -ti -p 8080:8080 lixiepeng/lxp:pypiserver
+- pip install --extra-index-url http://ip:port/ --trusted-host ip [packages]...

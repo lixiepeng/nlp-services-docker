@@ -1,4 +1,4 @@
-FROM continuumio/anaconda
+FROM continuumio/anaconda3
 
 ADD . /work
 WORKDIR /work
