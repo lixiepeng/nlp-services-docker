@@ -16,10 +16,13 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
+RUN apt-get install software-properties-common && \
+    add-apt-repository ppa:jonathonf/python-3.6
+
 RUN apt-get update \
  && apt-get install -y curl unzip \
     python3.6 python3-setuptools \
- && ln -s /usr/bin/python3 /usr/bin/python \
+ && ln -s /usr/local/bin/python3.6 /usr/bin/python \
  && easy_install3 pip py4j \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
