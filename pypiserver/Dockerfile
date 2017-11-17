@@ -10,5 +10,5 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8080
 
-CMD [ "pypi-server", "-p","8080", "/opt/conda/Lib" ]
+CMD [ "pypi-server", "-p","8080", "/opt/conda/Lib/site-packages" ]
 
