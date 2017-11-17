@@ -1,4 +1,4 @@
-FROM continuumio/anaconda
+FROM jupyter/base-notebook
 
 RUN git clone https://github.com/phiedulxp/snorkel.git && \
     cd snorkel && \
