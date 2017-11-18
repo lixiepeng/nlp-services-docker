@@ -1,0 +1,8 @@
+version: '2'
+services:
+  spark-master:
+    scale: 1
+  spark-worker:
+    scale: 3
+  spark-client:
+    scale: 1
