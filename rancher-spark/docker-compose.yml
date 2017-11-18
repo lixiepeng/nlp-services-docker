@@ -2,12 +2,16 @@ version: '2'
 services:
   spark-master:
     image: jupyter/all-spark-notebook
-    command: bin/spark-class org.apache.spark.deploy.master.Master -h master
+    command: /usr/local/spark/bin/spark-class org.apache.spark.deploy.master.Master -h master
     hostname: master
+    user: root
     environment:
       MASTER: spark://master:7077
       SPARK_CONF_DIR: /conf
       SPARK_PUBLIC_DNS: localhost
+      NB_UID: 1000
+      NB_GID: 100
+      GRANT_SUDO: yes
     expose:
       - 7001
       - 7002
@@ -32,9 +36,13 @@ services:
 
   spark-worker:
     image: jupyter/all-spark-notebook
-    command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://master:7077
+    command: /usr/local/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://master:7077
     hostname: worker
+    user: root
     environment:
+      NB_UID: 1000
+      NB_GID: 100
+      GRANT_SUDO: yes
       SPARK_CONF_DIR: /conf
       SPARK_WORKER_CORES: 2
       SPARK_WORKER_MEMORY: 1g
@@ -64,8 +72,9 @@ services:
       
   spark-client:
     image: jupyter/all-spark-notebook
-    command: start-notebook.sh,--NotebookApp.token=
+    command: start-notebook.sh --NotebookApp.token=''
     hostname: client
+    user: root
     environment:
       NB_UID: 1000
       NB_GID: 100
@@ -73,7 +82,7 @@ services:
     links:
       - spark-master:master
     ports:
-      - 8888  #avoid automate allocate host port by cattle
+      - 8888
     labels:
       io.rancher.scheduler.affinity:host_label: machine=g480
     volumes:
