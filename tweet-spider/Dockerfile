@@ -6,4 +6,4 @@ RUN git clone https://github.com/phiedulxp/tweet_search.git
 WORKDIR /work/tweet_search/spider
 RUN pip install -r requirement.txt
 
-CMD ["git", "pull"}#, "&&", "python", "worker.py"]
+CMD ["git", "pull"]#, "&&", "python", "worker.py"]
