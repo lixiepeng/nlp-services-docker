@@ -11,9 +11,9 @@ RUN wget http://nlp.stanford.edu/software/$CORENLP_ARCHIVE \
 
 WORKDIR $CORENLP_PATH
 
-#RUN wget http://nlp.stanford.edu/software/stanford-chinese-corenlp-${CORENLP_ARCHIVE_VERSION}-models.jar
+RUN wget http://nlp.stanford.edu/software/stanford-chinese-corenlp-${CORENLP_ARCHIVE_VERSION}-models.jar
 #RUN wget http://nlp.stanford.edu/software/stanford-english-corenlp-${CORENLP_ARCHIVE_VERSION}-models.jar
-RUN wget http://nlp.stanford.edu/software/stanford-english-kbp-corenlp-${CORENLP_ARCHIVE_VERSION}-models.jar
+#RUN wget http://nlp.stanford.edu/software/stanford-english-kbp-corenlp-${CORENLP_ARCHIVE_VERSION}-models.jar
 
 RUN export CLASSPATH="`find . -name '*.jar'`"
 
