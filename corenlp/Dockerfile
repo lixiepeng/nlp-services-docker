@@ -11,5 +11,7 @@ RUN wget http://nlp.stanford.edu/software/$CORENLP_ARCHIVE \
 
 WORKDIR $CORENLP_PATH
 
+RUN wget http://nlp.stanford.edu/software/stanford-chinese-corenlp-${CORENLP_ARCHIVE_VERSION}-models.jar
+
 EXPOSE 9000
 CMD ["java", "-mx4g", "-cp", "*", "edu.stanford.nlp.pipeline.StanfordCoreNLPServer", "9000"]
