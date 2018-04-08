@@ -6,7 +6,7 @@ WORKDIR /home/work
 RUN git clone https://github.com/phiedulxp/PKUSUMSUM-docker.git
 
 RUN cd PKUSUMSUM-docker
-
+RUN ls
 # pip 
 RUN pip3 install -r requirements.txt
 
