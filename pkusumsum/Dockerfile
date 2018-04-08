@@ -4,13 +4,11 @@ MAINTAINER Xiepeng Li <phiedulxp@gmail.com>
 # github
 RUN pip3 install --upgrade pip && \  
 git clone https://github.com/phiedulxp/PKUSUMSUM-docker.git && \  
-cd PKUSUMSUM-docker && \
+WORKDIR /PKUSUMSUM-docker && \
 pip3 install -r requirements.txt
 RUN cp ./lib/liblpsolve55.so /usr/local/lib/liblpsolve55.so && \
 cp ./lib/liblpsolve55j.so /usr/local/lib/liblpsolve55j.so && \
 /sbin/ldconfig
-
-WORKDIR /PKUSUMSUM-docker
 
 # dash app
 CMD ['python3','server-dash.py']
