@@ -2,11 +2,11 @@ from jermainedavis/java-python
 MAINTAINER Xiepeng Li <phiedulxp@gmail.com>
 
 # github
-RUN pip3 install --upgrade pip && \  
-git clone https://github.com/phiedulxp/PKUSUMSUM-docker.git && \  
-WORKDIR /PKUSUMSUM-docker && \
-pip3 install -r requirements.txt
-RUN cp ./lib/liblpsolve55.so /usr/local/lib/liblpsolve55.so && \
+RUN git clone https://github.com/phiedulxp/PKUSUMSUM-docker.git
+WORKDIR /PKUSUMSUM-docker 
+RUN pip3 install --upgrade pip && \ 
+pip3 install -r requirements.txt && \
+cp ./lib/liblpsolve55.so /usr/local/lib/liblpsolve55.so && \
 cp ./lib/liblpsolve55j.so /usr/local/lib/liblpsolve55j.so && \
 /sbin/ldconfig
 
