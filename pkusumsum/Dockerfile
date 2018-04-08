@@ -4,7 +4,8 @@ MAINTAINER Xiepeng Li <phiedulxp@gmail.com>
 # github
 WORKDIR /home/work
 RUN git clone https://github.com/phiedulxp/PKUSUMSUM-docker.git
-RUN cd PKUSUMSUM
+
+RUN cd PKUSUMSUM-docker
 
 # pip 
 RUN pip3 install -r requirements.txt
