@@ -1,4 +1,7 @@
-from jermainedavis/java-python
+#from jermainedavis/java-python
+from ubuntu
+from java
+from python
 MAINTAINER Xiepeng Li <phiedulxp@gmail.com>
 
 # github
