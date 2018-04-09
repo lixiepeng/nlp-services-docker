@@ -54,4 +54,4 @@ cp ./lib/liblpsolve55j.so /usr/local/lib/liblpsolve55j.so && \
 
 EXPOSE 8080
 # dash app
-CMD ['python','server-dash.py']
+CMD ['git','pull'] # python server_dash.py
