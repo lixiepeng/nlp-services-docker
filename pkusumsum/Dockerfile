@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine
 
 MAINTAINER Xiepeng Li <phiedulxp@gmail.com>
 
@@ -76,21 +76,13 @@ RUN set -ex && \
            /tmp/* /var/cache/apk/* && \
     echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf
 
-RUN sed -i s/cdn/6/ /etc/apk/repositories \
-    && apk add --update --progress \
-        musl \
-        build-base \
-        python3 \
-        python3-dev \
-        bash \
-        git \
-    && pip3 install --no-cache-dir --upgrade pip
-
-RUN cd /usr/bin \
-  && ln -sf easy_install-3.6 easy_install \
-  && ln -sf python3 python \
-  && ln -sf pip3 pip
-
+RUN apk add --update \
+    python \
+    python-dev \
+    py-pip \
+    build-base \
+  && pip install virtualenv \
+  && rm -rf /var/cache/apk/*
 
 # github
 WORKDIR /home/work
@@ -103,5 +95,5 @@ cp ./lib/liblpsolve55j.so /usr/local/lib/liblpsolve55j.so && \
 
 EXPOSE 8080
 # dash app
-CMD ['python','server-dash.py']
+CMD ['/env/bin/python','server-dash.py']
 
