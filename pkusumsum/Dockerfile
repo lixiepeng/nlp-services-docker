@@ -41,5 +41,5 @@ cp ./lib/liblpsolve55j.so /usr/local/lib/liblpsolve55j.so && \
 
 EXPOSE 8080
 # dash app
-CMD ['/env/bin/python','server-dash.py']
+CMD ['python','server-dash.py']
 
