@@ -11,7 +11,7 @@ RUN apt-get install -y git maven openjdk-8-jdk && \
     update-java-alternatives --set java-1.8.0-openjdk-amd64
 
 WORKDIR /opt
-RUN git clone https://github.com/CogComp/cogcomp-nlpy
+RUN git clone https://github.com/CogComp/cogcomp-nlp
 WORKDIR cogcomp-nlp
 RUN mvn -pl pipeline compile -DargLine="-Xmx10g"
 
