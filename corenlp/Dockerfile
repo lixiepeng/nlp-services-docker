@@ -18,4 +18,4 @@ RUN wget http://nlp.stanford.edu/software/stanford-chinese-corenlp-${CORENLP_ARC
 RUN export CLASSPATH="`find . -name '*.jar'`"
 
 EXPOSE 9000
-CMD ["java", "-mx4g", "-cp", "*", "edu.stanford.nlp.pipeline.StanfordCoreNLPServer", "9000"]
+CMD ["java", "-mx6g", "-cp", "*", "edu.stanford.nlp.pipeline.StanfordCoreNLPServer", "9000"]
