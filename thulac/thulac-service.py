@@ -34,7 +34,7 @@ init()
 def cut(text):
     if type(locals()['text']) == list:
         result = []
-        [result.extend(seg(i.encode('utf-8')) for i in locals()['text']]
+        [result.extend(seg(i.encode('utf-8'))) for i in locals()['text']]
         return result
     else:
         return seg(locals()['text'].encode('utf-8'))
