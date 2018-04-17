@@ -30,5 +30,6 @@ init()
 #clear()
     
 @hug.get('/thulac')
+@hug.post('/thulac')
 def cut(text):
     return seg(locals()['text'].encode('utf-8'))
