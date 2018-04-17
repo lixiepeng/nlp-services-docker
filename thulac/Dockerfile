@@ -11,4 +11,4 @@ ADD . /THULAC.so
 WORKDIR /THULAC.so
 
 EXPOSE 8000
-CMD ['hug', '-f', 'thulac-service.py']
+CMD hug -f thulac-service.py
