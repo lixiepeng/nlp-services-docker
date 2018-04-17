@@ -32,4 +32,9 @@ init()
 @hug.get('/thulac')
 @hug.post('/thulac')
 def cut(text):
-    return seg(locals()['text'].encode('utf-8'))
+    if type(locals()['text']) == list:
+        result = []
+        [result.extend(seg(i.encode('utf-8')) for i in locals()['text']]
+        return result
+    else:
+        return seg(locals()['text'].encode('utf-8'))
