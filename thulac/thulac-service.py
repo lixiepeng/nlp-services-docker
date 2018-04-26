@@ -4,7 +4,7 @@ import hug
 
 _lib = None
 
-def init(model_path='', user_dict_path='', pre_alloc_size=1024*1024*16, t2s=False, just_seg=True):
+def init(model_path='', user_dict_path='', pre_alloc_size=1024*1024*16, t2s=False, just_seg=False):
     global _lib
     if _lib == None:
         path = '/usr/local/lib/python3.6/site-packages/thulac' #设置so文件的位置
