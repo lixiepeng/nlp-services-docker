@@ -17,5 +17,5 @@ EXPOSE 4900
 EXPOSE 4993
 EXPOSE 50000-50999
 
-CMD ["startup.sh"]
+CMD ["./startup.sh"]
 
