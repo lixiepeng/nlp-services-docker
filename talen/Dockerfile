@@ -4,7 +4,7 @@ WORKDIR /work
 
 RUN git clone https://github.com/CogComp/talen.git && \
     cd talen && \
-    maven mvn clean
+    mvn clean
 
 EXPOSE 8009
 
