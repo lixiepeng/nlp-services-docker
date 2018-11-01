@@ -24,10 +24,10 @@ RUN \
     echo "===> install make, curl, perl" && \
     apt-get update && apt-get install -y --force-yes wget make curl perl
 
-RUN wget https://github.com/shangjingbo1226/AutoPhrase/archive/master.zip \
-  && unzip master.zip \
-  && rm master.zip
-  && mv AutoPhrase-master $WORK_PATH
+RUN wget https://github.com/shangjingbo1226/AutoPhrase/archive/master.zip && \
+  unzip master.zip && \
+  rm master.zip && \
+  mv AutoPhrase-master $WORK_PATH
 
 RUN \
     echo "===> make" &&\
