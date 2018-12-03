@@ -1,4 +1,5 @@
-FROM debian:jessie
+FROM ubuntu 
+# debian:jessie
 MAINTAINER Xiepeng Li <phiedulxp@gmail.com>
 
 ENV WORK_PATH=/autophrase
