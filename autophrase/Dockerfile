@@ -1,4 +1,5 @@
-FROM ubuntu:16.04
+FROM python:3.6.5
+# ubuntu:16.04
 # debian:jessie
 MAINTAINER Xiepeng Li <phiedulxp@gmail.com>
 
