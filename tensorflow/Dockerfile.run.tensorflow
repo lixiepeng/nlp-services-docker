@@ -16,9 +16,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-FROM pai.build.base:hadoop2.7.2-cuda10.0-cudnn7-devel-ubuntu16.04
+# tag: pai.run.tensorflow
+#
+# Before building this image you need to build the base image first:
+#
+# docker build -f Dockerfile.build.base -t lxp/pai:hadoop2.7.2-cuda10.0-cudnn7-devel-ubuntu16.04.
 
-ENV TENSORFLOW_VERSION=1.31.1
+
+FROM lxp/pai:hadoop2.7.2-cuda10.0-cudnn7-devel-ubuntu16.04
+
+ENV TENSORFLOW_VERSION=1.13.1
 
 # For how to run TensorFlow on Hadoop,
 # please refer to https://www.tensorflow.org/deploy/hadoop
@@ -27,14 +34,6 @@ RUN pip install tensorflow-gpu==${TENSORFLOW_VERSION} && \
 
 # Add symbol link for libcuda.so
 RUN ln -s /usr/local/cuda/targets/x86_64-linux/lib/stubs/libcuda.so \
-          /usr/local/cuda/targets/x86_64-linux/lib/stubs/libcuda.so.10.0
-
-#update and upgrade, install git
-RUN apt-get update && apt-get upgrade -y && apt-get -y install git
-
-ENV LC_ALL C
-
-#if you want to build the docker image with data, please prepare the data first and remove the '#' in next line
-#ADD ./data /tmp/data
+          /usr/local/cuda/targets/x86_64-linux/lib/stubs/libcuda.so.1
 
 WORKDIR /root
