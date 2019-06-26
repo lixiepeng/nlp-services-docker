@@ -24,13 +24,8 @@
 # docker build -f Dockerfile.build.base -t lixiepeng/pai:hadoop2.7.2-cuda10.0-cudnn7-devel-ubuntu16.04 .
 
 
-# Tag: nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
-# Label: com.nvidia.cuda.version: 9.0.176
-# Label: com.nvidia.cudnn.version: 7.1.2.21
-# Label: com.nvidia.volumes.needed: nvidia_driver
-# Label: maintainer: NVIDIA CORPORATION <cudatools@nvidia.com>
-# Ubuntu 16.04
-FROM nvidia/cuda@sha256:40db1c98b66e133f54197ba1a66312b9c29842635c8cba5ae66fb56ded695b7c
+# https://gitlab.com/nvidia/cuda/blob/ubuntu16.04/10.0/devel/cudnn7/Dockerfile
+FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
 
 ENV HADOOP_VERSION=2.7.2
 LABEL HADOOP_VERSION=2.7.2
