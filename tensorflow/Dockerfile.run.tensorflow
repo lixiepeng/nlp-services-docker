@@ -20,10 +20,10 @@
 #
 # Before building this image you need to build the base image first:
 #
-# docker build -f Dockerfile.build.base -t lxp/pai:hadoop2.7.2-cuda10.0-cudnn7-devel-ubuntu16.04.
+# docker build -f Dockerfile.build.base -t lixiepeng/pai:hadoop2.7.2-cuda10.0-cudnn7-devel-ubuntu16.04.
 
 
-FROM lxp/pai:hadoop2.7.2-cuda10.0-cudnn7-devel-ubuntu16.04
+FROM lixiepeng/pai:hadoop2.7.2-cuda10.0-cudnn7-devel-ubuntu16.04
 
 ENV TENSORFLOW_VERSION=1.13.1
 
