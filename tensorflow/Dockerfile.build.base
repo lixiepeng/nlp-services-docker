@@ -45,6 +45,7 @@ RUN DEBIAN_FRONTEND=noninteractive && \
         curl \
         unzip \
         automake \
+        nfs-common \
         openjdk-8-jdk \
         openssh-server \
         openssh-client \
