@@ -9,7 +9,7 @@ ENV NCCL_VERSION=2.4.7-1+cuda10.0
 ENV MXNET_VERSION=1.4.1
 
 # Python 2.7 or 3.6 is supported by Ubuntu Bionic out of the box
-ARG python=3.6
+ARG python=3
 ENV PYTHON_VERSION=${python}
 
 # Set default shell to /bin/bash
