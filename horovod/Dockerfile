@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.0-devel-ubuntu16.04
+FROM nvidia/cuda:10.0-devel-ubuntu18.04
 
 # TensorFlow version is tightly coupled to CUDA and cuDNN so it should be selected carefully
 ENV TENSORFLOW_VERSION=1.13.1
@@ -9,7 +9,7 @@ ENV NCCL_VERSION=2.4.7-1+cuda10.0
 ENV MXNET_VERSION=1.4.1
 
 # Python 2.7 or 3.6 is supported by Ubuntu Bionic out of the box
-ARG python=3
+ARG python=2.7
 ENV PYTHON_VERSION=${python}
 
 # Set default shell to /bin/bash
@@ -48,9 +48,9 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
 RUN pip install future typing
 RUN pip install numpy \
         tensorflow-gpu==${TENSORFLOW_VERSION} \
-        sentencepiece \
         keras \
-        h5py
+        h5py \
+        sentencepiece
 RUN pip install https://download.pytorch.org/whl/cu100/torch-${PYTORCH_VERSION}-$(python -c "import wheel.pep425tags as w; print('-'.join(w.get_supported()[0]))").whl \
         https://download.pytorch.org/whl/cu100/torchvision-${TORCHVISION_VERSION}-$(python -c "import wheel.pep425tags as w; print('-'.join(w.get_supported()[0]))").whl
 RUN pip install mxnet-cu100==${MXNET_VERSION}
