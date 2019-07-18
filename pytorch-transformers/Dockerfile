@@ -1,5 +1,4 @@
-
-FROM pytorch/pytorch:latest
+FROM pytorch/pytorch-devel:latest
 
 RUN git clone https://github.com/NVIDIA/apex.git && cd apex && python setup.py install --cuda_ext --cpp_ext
 
