@@ -1,7 +1,4 @@
-FROM python:3.6.5
-# ubuntu:16.04
-# debian:jessie
-MAINTAINER Xiepeng Li <phiedulxp@gmail.com>
+FROM python:3.7.5
 
 ENV WORK_PATH=/autophrase
 
