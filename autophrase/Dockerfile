@@ -1,4 +1,4 @@
-FROM python:3.7.5
+FROM ubuntu:16.04
 
 ENV WORK_PATH=/autophrase
 
