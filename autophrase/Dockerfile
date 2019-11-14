@@ -1,19 +1,10 @@
-FROM python:3.6.5
+FROM python:3.7.5
 
 ENV WORK_PATH=/autophrase
 
-RUN \
-    echo "===> add webupd8 repository..."  && \
-    echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-java.list  && \
-    echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list  && \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886  && \
-    apt-get update  && \
-    \
-    \
-    echo "===> install Java"  && \
-    echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections  && \
-    echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections  && \
-    DEBIAN_FRONTEND=noninteractive  apt-get install -y --force-yes oracle-java8-installer oracle-java8-set-default
+RUN echo "===> install Java"  && \
+    apt-get install -y git maven openjdk-8-jdk && \
+    update-java-alternatives --set java-1.8.0-openjdk-amd64
 
 RUN \
     echo "===> install g++" && \
@@ -24,9 +15,9 @@ RUN \
     apt-get update && apt-get install -y --force-yes wget zip make curl perl
 
 RUN wget https://github.com/shangjingbo1226/AutoPhrase/archive/master.zip && \
-  unzip master.zip && \
-  rm master.zip && \
-  mv AutoPhrase-master $WORK_PATH
+    unzip master.zip && \
+    rm master.zip && \
+    mv AutoPhrase-master $WORK_PATH
 
 RUN \
     echo "===> make" &&\
@@ -35,7 +26,6 @@ RUN \
 RUN \
     echo "===> clean up..."  && \
     apt-get remove --purge -y --force-yes make gcc && \
-    rm -rf /var/cache/oracle-jdk8-installer  && \
     apt-get clean  && \
     rm -rf /var/lib/apt/lists/*
 
