@@ -3,8 +3,13 @@ FROM ubuntu:16.04
 ENV WORK_PATH=/autophrase
 
 RUN echo "===> install Java"  && \
-    apt-get install -y git maven openjdk-8-jdk && \
-    update-java-alternatives --set java-1.8.0-openjdk-amd64
+    apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y  software-properties-common && \
+    add-apt-repository ppa:webupd8team/java -y && \
+    apt-get update && \
+    echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
+    apt-get install -y oracle-java8-installer
 
 RUN \
     echo "===> install g++" && \
@@ -12,7 +17,7 @@ RUN \
 
 RUN \
     echo "===> install make, curl, perl" && \
-    apt-get update && apt-get install -y --force-yes wget zip make curl perl
+    apt-get update && apt-get install -y --force-yes git wget zip make curl perl
 
 RUN wget https://github.com/shangjingbo1226/AutoPhrase/archive/master.zip && \
     unzip master.zip && \
